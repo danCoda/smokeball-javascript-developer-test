@@ -1,9 +1,9 @@
 const { httpGet } = require("./mock-http-interface");
 
 const getArnieQuotes = async (urls) => {
-  const promises = urls.map(async (url) => {
+  const promises = urls?.map(async (url) => {
     const response = await httpGet(url);
-    const message = JSON.parse(response.body).message;
+    const message = JSON.parse(response.body)?.message;
 
     if (response.status === 500) {
       return {
