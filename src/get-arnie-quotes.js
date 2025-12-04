@@ -5,7 +5,7 @@ const getArnieQuotes = async (urls) => {
     const response = await httpGet(url);
     const message = JSON.parse(response.body)?.message;
 
-    if (response.status === 500) {
+    if (response.status !== 200) {
       return {
         FAILURE: message,
       };
